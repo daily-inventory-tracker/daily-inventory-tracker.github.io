@@ -25,20 +25,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build shared package
+        run: npm run shared:build
+
+      - name: Build web package
+        run: npm run web:build
         env:
           CI: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-          exclude: |
-            package.json
-            package-lock.json
-            .gitignore
-            README.md
+          path: './packages/web/dist'
 
   deploy:
     needs: build

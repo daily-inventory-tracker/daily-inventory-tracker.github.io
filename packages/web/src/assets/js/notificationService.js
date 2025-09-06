@@ -215,8 +215,8 @@ class NotificationService {
       // Create notification options based on browser support
       const notificationOptions = {
         body,
-        icon: '/assets/images/icons/favicon-192x192.png',
-        badge: '/assets/images/icons/favicon-32x32.png',
+        icon: '/assets/images/icons/icon-192x192.png',
+        badge: '/assets/images/icons/icon-32x32.png',
         requireInteraction: false,
       };
 
@@ -227,12 +227,12 @@ class NotificationService {
           {
             action: 'open',
             title: 'Open App',
-            icon: '/assets/images/icons/favicon-32x32.png',
+            icon: '/assets/images/icons/icon-32x32.png',
           },
           {
             action: 'dismiss',
             title: 'Dismiss',
-            icon: '/assets/images/icons/favicon-32x32.png',
+            icon: '/assets/images/icons/icon-32x32.png',
           },
         ];
       }
@@ -246,7 +246,7 @@ class NotificationService {
         try {
           const fallbackOptions = {
             body,
-            icon: '/assets/images/icons/favicon-192x192.png',
+            icon: '/assets/images/icons/icon-192x192.png',
           };
 
           new Notification(title, fallbackOptions);
@@ -355,7 +355,7 @@ class NotificationService {
     console.log('Showing simple browser notification...');
     const notification = new Notification(title, {
       body,
-      icon: '/assets/images/icons/favicon-192x192.png',
+      icon: '/assets/images/icons/icon-192x192.png',
     });
 
     console.log('Simple notification created:', notification);

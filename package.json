@@ -1,97 +1,55 @@
 {
-  "name": "dailyinventory",
+  "name": "dailyinventory-monorepo",
   "version": "1.0.0",
-  "description": "Tracking daily personal inventory and spiritual growth",
-  "main": "index.js",
-  "homepage": "https://dailyinventory.github.io/",
+  "description": "Daily Inventory - Cross-platform spiritual inventory tracking app",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "start": "craco start",
-    "build": "echo 'Starting build process...' && ls -la public/ && BUILD_PATH=dist craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
-    "clean": "rimraf dist",
-    "clean:build": "npm run clean && npm run build",
-    "generate-icons": "node generate-favicon.js",
-    "lint": "eslint . --ext .js,.jsx",
-    "lint:fix": "eslint . --ext .js,.jsx --fix"
+    "web:start": "npm run start --workspace=dailyinventory-web",
+    "web:build": "npm run build --workspace=dailyinventory-web",
+    "mobile:start": "npm run start --workspace=dailyinventory-mobile",
+    "mobile:ios": "npm run ios --workspace=dailyinventory-mobile",
+    "mobile:android": "npm run android --workspace=dailyinventory-mobile",
+    "desktop:start": "npm run start --workspace=dailyinventory-desktop",
+    "desktop:dev": "npm run electron-dev --workspace=dailyinventory-desktop",
+    "desktop:build": "npm run build --workspace=dailyinventory-desktop",
+    "desktop:dist": "npm run dist --workspace=dailyinventory-desktop",
+    "desktop:dist:win": "npm run dist:win --workspace=dailyinventory-desktop",
+    "desktop:dist:mac": "npm run dist:mac --workspace=dailyinventory-desktop",
+    "desktop:dist:linux": "npm run dist:linux --workspace=dailyinventory-desktop",
+    "shared:build": "npm run build --workspace=dailyinventory-shared",
+    "dev": "concurrently \"npm run web:start\" \"npm run mobile:start\" \"npm run desktop:start\"",
+    "build:all": "npm run shared:build && npm run web:build && npm run desktop:build",
+    "install:all": "npm install && npm run shared:build",
+    "clean": "npm run clean --workspaces",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^18.0.0",
+    "concurrently": "^8.2.2",
+    "react-native-gradle-plugin": "^0.71.0"
   },
   "keywords": [
     "pwa",
+    "react-native",
+    "electron",
     "inventory",
     "spiritual",
     "tracking",
-    "react"
+    "cross-platform",
+    "monorepo"
   ],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.5.1",
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.0",
-    "chart.js": "^4.4.0",
-    "dayjs": "^1.11.10",
-    "flatpickr": "^4.6.13",
-    "jquery": "^3.7.1",
-    "jquery-ui": "^1.14.1",
-    "react": "^18.2.0",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.2.0",
-    "react-flatpickr": "^4.0.10",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-env": "^7.22.0",
-    "@craco/craco": "^7.1.0",
-    "autoprefixer": "^10.4.17",
-    "babel-loader": "^9.1.2",
-    "copy-webpack-plugin": "^12.0.2",
-    "css-loader": "^6.8.1",
-    "css-minimizer-webpack-plugin": "^6.0.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.0",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "file-loader": "^6.2.0",
-    "git-rev-sync": "^3.0.2",
-    "html-loader": "^5.0.0",
-    "html-webpack-plugin": "^5.5.3",
-    "mini-css-extract-plugin": "^2.7.6",
-    "postcss": "^8.4.35",
-    "postcss-loader": "^8.1.0",
-    "prettier": "^3.5.3",
-    "rimraf": "^5.0.1",
-    "sass": "^1.63.6",
-    "sass-loader": "^13.3.2",
-    "sharp": "^0.32.6",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.88.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@babel/runtime": "^7.27.6",
+    "@babel/runtime-corejs3": "^7.27.6"
   }
 }

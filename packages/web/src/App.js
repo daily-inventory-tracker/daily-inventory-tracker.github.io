@@ -622,7 +622,7 @@ function App() {
       await notificationService.sendPushNotification(subscription, {
         title: 'Test Push Notification',
         body: 'This is a test push notification from Daily Inventory!',
-        icon: '/assets/images/icons/favicon-192x192.png',
+        icon: '/assets/images/icons/icon-192x192.png',
         data: {
           url: '/',
           timestamp: Date.now(),

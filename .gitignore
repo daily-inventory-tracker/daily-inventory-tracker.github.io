@@ -3,8 +3,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-# package-lock.json
-# yarn.lock
 
 # Build output
 dist/
@@ -27,9 +25,6 @@ Thumbs.db
 # Debug logs
 logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Testing
 coverage/
@@ -64,24 +59,15 @@ Thumbs.db
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
 # parcel-bundler cache
 .cache
 .parcel-cache
 
 # Next.js build output
 .next
-out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -109,4 +95,56 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-.pnp.* 
+.pnp.*
+
+# React Native specific
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+!debug.keystore
+
+# Bundle artifacts
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/
+
+# Expo
+.expo/
+web-build/
+
+# Metro
+.metro-health-check*
+
+# Flipper
+ios/Pods/Flipper*
+
+# Monorepo specific
+# Shared package build output
+packages/shared/dist/ 

@@ -5,7 +5,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/images/icons/favicon.ico',
+  '/assets/images/icons/icon-32x32.png',
 ];
 
 // Detect Firefox
@@ -32,8 +32,8 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'Time to complete your daily inventory!',
-    icon: '/assets/images/icons/favicon-192x192.png',
-    badge: '/assets/images/icons/favicon-32x32.png',
+    icon: '/assets/images/icons/icon-192x192.png',
+    badge: '/assets/images/icons/icon-32x32.png',
     data: {
       dateOfArrival: Date.now(),
       primaryKey: 1,
@@ -47,12 +47,12 @@ self.addEventListener('push', (event) => {
       {
         action: 'open',
         title: 'Open App',
-        icon: '/assets/images/icons/favicon-32x32.png',
+        icon: '/assets/images/icons/icon-32x32.png',
       },
       {
         action: 'dismiss',
         title: 'Dismiss',
-        icon: '/assets/images/icons/favicon-32x32.png',
+        icon: '/assets/images/icons/icon-32x32.png',
       },
     ];
   }
